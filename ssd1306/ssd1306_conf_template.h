@@ -18,6 +18,7 @@
 //#define STM32F7
 //#define STM32G0
 //#define STM32C0
+//#define STM32U5
 
 // Choose a bus
 #define SSD1306_USE_I2C
