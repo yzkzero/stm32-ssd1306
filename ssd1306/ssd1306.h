@@ -10,7 +10,18 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <_ansi.h>
+//#include <_ansi.h>
+
+#ifndef _BEGIN_STD_C
+#ifdef __cplusplus
+#define _BEGIN_STD_C extern "C" {
+#define _END_STD_C }
+#else
+#define _BEGIN_STD_C
+#define _END_STD_C
+#endif
+#endif
+
 
 _BEGIN_STD_C
 
@@ -205,7 +216,7 @@ void ssd1306_SetDisplayOn(const uint8_t on);
  * @return  0: OFF.
  *          1: ON.
  */
-uint8_t ssd1306_GetDisplayOn();
+uint8_t ssd1306_GetDisplayOn(void);
 
 // Low-level procedures
 void ssd1306_Reset(void);
