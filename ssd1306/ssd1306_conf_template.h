@@ -6,6 +6,8 @@
 #ifndef __SSD1306_CONF_H__
 #define __SSD1306_CONF_H__
 
+#define OPTIMIZE_FOR_SSD1315
+
 // Choose a microcontroller family
 //#define STM32F0
 #define STM32F1

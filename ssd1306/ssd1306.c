@@ -138,7 +138,11 @@ void ssd1306_Init(void) {
     ssd1306_WriteCommand(0xF0); //--set divide ratio
 
     ssd1306_WriteCommand(0xD9); //--set pre-charge period
-    ssd1306_WriteCommand(0x22); //
+#ifdef OPTIMIZE_FOR_SSD1315
+    ssd1306_WriteCommand(0xF1);
+#else
+    ssd1306_WriteCommand(0x22);
+#endif
 
     ssd1306_WriteCommand(0xDA); //--set com pins hardware configuration - CHECK
 #if (SSD1306_HEIGHT == 32)
@@ -152,7 +156,11 @@ void ssd1306_Init(void) {
 #endif
 
     ssd1306_WriteCommand(0xDB); //--set vcomh
+#ifdef OPTIMIZE_FOR_SSD1315
+    ssd1306_WriteCommand(0x40);
+#else
     ssd1306_WriteCommand(0x20); //0x20,0.77xVcc
+#endif
 
     ssd1306_WriteCommand(0x8D); //--set DC-DC enable
     ssd1306_WriteCommand(0x14); //
